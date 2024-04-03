@@ -5,13 +5,10 @@ Btech ICT (section B)
 
 Team Phoenix :
 
-202301243 - Chaitri Vadaviya
-
-202301406 - Khushi Pandya
-
-202301257 - Kanu Bhadarka
-
-202301428 - Sujal Mohapatra
+202301243 - Chaitri Vadaviya </br>
+202301406 - Khushi Pandya</br>
+202301257 - Kanu Bhadarka</br>
+202301428 - Sujal Mohapatra</br>
 
 IT205 capstone idea : P10
 
