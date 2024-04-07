@@ -1065,7 +1065,7 @@ begining:
             cin >> t;
             int w = 0, x1;
 
-        type_search:
+        hello:
 
             searchByType(t, w);
             cout << "Above dishes are of the type you have searched for." << endl
@@ -1075,7 +1075,7 @@ begining:
             if (x1 == 1)
             {
                 w = w + 5;
-                goto type_search;
+                goto hello;
             }
             else if (x1 == 0)
             {
