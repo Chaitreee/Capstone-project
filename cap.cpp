@@ -75,7 +75,7 @@ void initialize()
                     "Remove the whistle of the cooker and close the lid.\n"
                     "Let the dhokla cook for 20 minutes.\n";
     dhokla.taste = 1;
-    dhokla.type = 2;
+    dhokla.type = 3;
     dhokla.next = NULL;
 
     // lunch dishes
@@ -389,7 +389,7 @@ void initialize()
     chilla.arr[7].a = "turmeric";
 
     chilla.taste = 1;
-    chilla.type = 2;
+    chilla.type = 3;
     chilla.next = &chhole_kulche;
 
     idli.name = "idli";
@@ -407,7 +407,7 @@ void initialize()
     idli.arr[4].a = "lentil";
 
     idli.taste = 1;
-    idli.type = 2;
+    idli.type = 3;
     idli.next = NULL;
 
     paratha.name = "paratha";
@@ -425,7 +425,7 @@ void initialize()
     paratha.arr[0].a = "saunf";
 
     paratha.taste = 1;
-    paratha.type = 2;
+    paratha.type = 3;
     paratha.next = NULL;
 
     uggani.name = "uggani";
@@ -449,7 +449,7 @@ void initialize()
     uggani.arr[9].a = "green chilli";
 
     uggani.taste = 1;
-    uggani.type = 2;
+    uggani.type = 3;
     uggani.next = NULL;
 
     aloo_sabji.name = "aloo sabji";
@@ -470,7 +470,7 @@ void initialize()
     aloo_sabji.arr[9].a = "ginger";
 
     aloo_sabji.taste = 2;
-    aloo_sabji.type = 1;
+    aloo_sabji.type = 3;
     aloo_sabji.next = &aalo_muter;
 
     paneer_sabji.name = "paneer sabji";
@@ -490,7 +490,7 @@ void initialize()
     paneer_sabji.arr[9].a = "ginger";
 
     paneer_sabji.taste = 2;
-    paneer_sabji.type = 1;
+    paneer_sabji.type = 3;
     paneer_sabji.next = &paratha;
 
     mushroom_sabji.name = "mushroom sabji";
@@ -510,7 +510,7 @@ void initialize()
     mushroom_sabji.arr[9].a = "ginger";
 
     mushroom_sabji.taste = 2;
-    mushroom_sabji.type = 1;
+    mushroom_sabji.type = 3;
     mushroom_sabji.next = NULL;
 
     gobi_sabji.name = "gobi sabji";
@@ -545,7 +545,7 @@ void initialize()
     gobi_sabji.arr[11].a = "butter";
 
     gobi_sabji.taste = 2;
-    gobi_sabji.type = 1;
+    gobi_sabji.type = 3;
     gobi_sabji.next = NULL;
 
     veg_pulao.name = "veg pulao";
@@ -577,7 +577,7 @@ void initialize()
     veg_pulao.arr[8].a = "cumin seeds";
 
     veg_pulao.taste = 2;
-    veg_pulao.type = 1;
+    veg_pulao.type = 3;
     veg_pulao.next = NULL;
 
     chole_sabji.name = "gobi sabji";
@@ -612,7 +612,7 @@ void initialize()
     chole_sabji.arr[11].a = "butter";
 
     chole_sabji.taste = 2;
-    chole_sabji.type = 1;
+    chole_sabji.type = 3;
     chole_sabji.next = NULL;
 
     lauki_sabji.name = "lauki sabji";
@@ -647,7 +647,7 @@ void initialize()
     lauki_sabji.arr[11].a = "butter";
 
     lauki_sabji.taste = 2;
-    lauki_sabji.type = 1;
+    lauki_sabji.type = 3;
     lauki_sabji.next = NULL;
 }
 
@@ -817,18 +817,20 @@ for_loop3:
 
 void findrecibyingd(string ingd[], int noofingd)
 {
-    bool foundallingd = true;
-    bool foundingd = false;
-    for (int i = 0; i < 26; i++) // traversing in food array in wich we have sorted names by alphabet
+   
+   
+    for (int i = 0; i < 26; i++) 
     {
         dish *temp = storage[i].next;
-        while (temp != NULL) // traversing in linked list
+        while (temp != NULL)
         {
+             bool foundallingd = true;
             for (int j = 0; j < noofingd; j++)
             {
+                 bool foundingd = false;
                 for (int k = 0; k < 25; k++)
                 {
-                    if ((ingd[j]).compare((temp->arr[k].a)) == 0)
+                    if (ingd[j] == temp->arr[k].a)
                     {
                         foundingd = true;
                         break;
@@ -992,7 +994,7 @@ begining:
         {
             cin >> s[y];
         }
-
+        findrecibyingd(s, ni);
         cout << "Enter 1 to contine and any other number to exit:" << endl;
         int y;
         cin >> y;
