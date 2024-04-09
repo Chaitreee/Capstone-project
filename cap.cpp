@@ -741,3 +741,36 @@ void searchByCat(char c, int varity)
         }
     }
 }
+void searchByType(int type, int varity)
+{
+    int j = varity, k = 0;
+    for (int i = 0; i < 26; i++)
+    {
+        dish *temp = storage[i].next;
+        while (temp != NULL && j != varity + 5)
+        {
+            if (temp->type == type)
+            {
+                k++;
+                if (k > varity)
+
+                {
+                    j++;
+                    cout << temp->name << endl;
+                }
+            }
+            temp = temp->next;
+        }
+    }
+    if (j == varity)
+    {
+        if (k == 0)
+        {
+            cout << "dish of this Type is not available :( " << endl;
+        }
+        else
+        {
+            cout << "No more varites of this Type is available :(" << endl;
+        }
+    }
+}
