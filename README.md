@@ -16,3 +16,21 @@ P10 : Recipe Manager
 
 Build a recipe manager applictaion where user can search, save and organoize recipes, including features like ingredient search,
 recipe categorization, and meal planning, utilizing data structures for recipe storage and retrieval.
+
+Contribution of each member in the project :
+
+Sujal Mohapatra(202301428)
+- Intialize()
+- inputreci()
+
+Kanu Bhadaraka(202301257)
+- findrecibyingd()
+- store()
+
+Chaitri Vadaviya(202301243)
+- SearchByCat()
+- SearchByType()
+
+Khushi Pandya(202301406)
+- mealPlanner()
+- main()
