@@ -669,4 +669,23 @@ void storing()
     storage[20].next = &upma;
     storage[21].next = &veg_pulao;
 }
+void search(string reci, int index)
+{
 
+    dish *temp = storage[index].next;
+    while (temp != NULL)
+    {
+        if (reci.compare(temp->name) == 0)
+        {
+            cout << temp->recipe;
+            goto end;
+        }
+        else
+        {
+            temp = temp->next;
+        }
+    }
+    cout << "No such recipe found :(";
+end:
+    cout << endl;
+}
