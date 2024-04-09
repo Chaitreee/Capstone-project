@@ -880,3 +880,228 @@ void findrecibyingd(string ingd[], int noofingd)
         }
     }
 }
+
+int main()
+{
+    initialize();
+    storing();
+    cout << "Hello foodies :), so what are your today's food cravings??  " << endl;
+begining:
+    cout << "Here are some options for you" << endl;
+    cout << "1 : If you wanna search any particular recipe then press 1" << endl
+         << "2 : For storing a new recipe enter 2;" << endl
+         << "3 : For search recipe by ingredients press 3" << endl
+         << "4 : For search recipes of a particular category press 4" << endl
+         << "5 : For the meal planning press 5" << endl
+         << "And any other integer to exit" << endl;
+    int a;
+    cin >> a;
+
+    if (a == 1)
+    {
+
+    input:
+        string reci;
+        cout << " Enter the recipe you want to search:" << endl
+             << "(Please enter the small alphabates only)" << endl;
+        cin >> reci;
+        int ind;
+
+        if (reci[0] < 97 || reci[0] > 122)
+        {
+            cout << "Please enter only small alphabates in the recipe name." << endl;
+            goto input;
+        }
+        else
+        {
+            ind = reci[0] - 97;
+        }
+        search(reci, ind);
+
+        cout << "Enter 1 to contine and any other number to exit:" << endl;
+        int y = 0;
+        cin >> y;
+        if (y == 1)
+        {
+            goto begining;
+        }
+        else
+        {
+            goto end;
+        }
+    }
+    else if (a == 2)
+    {
+        cout << "Enter the name of the recipe you want to store:" << endl;
+        string inname;
+        cin >> inname;
+
+        cout << "Enter the type integers respectively: " << endl;
+        cout << "Enter 1 for Drinks, 2 for desserts, 3 for main meal" << endl;
+        int inty;
+        cin >> inty;
+
+        cout << "Enter the character for category of your dish: " << endl;
+        cout << "Enter 'B' for Breakfast, 'L' for Lunch, 'D' for Dinner and 'O' for others :" << endl;
+        char incat;
+        cin >> incat;
+
+        cout << "Enter the recipe : (enter '#' in a new line to end the recipe)" << endl;
+        string inreci;
+        string line;
+        while (getline(cin, line))
+        {
+            if (line == "#")
+            {
+                break;
+            }
+            inreci += line + "\n";
+        }
+
+        dish r1;
+        r1.name = inname;
+        r1.category = incat;
+        r1.recipe = inreci;
+        r1.type = inty;
+        r1.next = NULL;
+
+        inputReci(r1);
+
+        cout << "Enter 1 to contine and any other number to exit:" << endl;
+        int y;
+        cin >> y;
+        if (y == 1)
+        {
+            goto begining;
+        }
+        else
+        {
+            goto end;
+        }
+    }
+    else if (a == 3)
+    {
+        cout << "Enter number of ingredients :" << endl;
+        int ni;
+        cin >> ni;
+        string s[ni];
+        cout << "enter ingradients" << endl;
+        for (int y = 0; y < ni; y++)
+        {
+            cin >> s[y];
+        }
+        findrecibyingd(s, ni);
+        cout << "Enter 1 to contine and any other number to exit:" << endl;
+        int y;
+        cin >> y;
+        if (y == 1)
+        {
+            goto begining;
+        }
+        else
+        {
+            goto end;
+        }
+    }
+    else if (a == 4)
+    {
+        cout << "Please specify the category of recipes you're interested in: " << endl;
+        cout << "Enter 'B' for Breakfast, 'L' for Lunch, 'D' for Dinner and 'O' for other:" << endl;
+        char c;
+        cin >> c;
+        int b = 0, x;
+    hello:
+        searchByCat(c, b);
+        cout << "Above dishes are of the category you have searched for." << endl
+             << "Enter 1 if you want more options and 0 if you want to search recipe of any of above dish:" << endl;
+    label:
+        cin >> x;
+        if (x == 1)
+        {
+            b = b + 5;
+            goto hello;
+        }
+        else if (x == 0)
+        {
+            goto input;
+        }
+        else
+        {
+            cout << "Please enter only 0 or 1." << endl;
+            goto label;
+        }
+
+        cout << "Enter 1 to contine and any other number to exit:" << endl;
+        int y;
+        cin >> y;
+        if (y == 1)
+        {
+            goto begining;
+        }
+        else
+        {
+            goto end;
+        }
+    }
+    else if (a == 5)
+    {
+        cout << "Here are some options for breakfast, lunch and dinner recipes :" << endl;
+    MealPlanner:
+        mealplanner();
+        cout << "If you are not satisfied with these options then press 1 for more options or any other number to exit" << endl;
+        int q;
+        cin >> q;
+        if (q == 1)
+        {
+            goto MealPlanner;
+        }
+        else
+        {
+            cout << "Would you like to have desserts or drinks ??" << endl;
+            cout << "Enter 1 for drinks and 2 for desserts :" << endl;
+            int t;
+            cin >> t;
+            int w = 0, x1;
+
+        type_search:
+
+            searchByType(t, w);
+            cout << "Above dishes are of the type you have searched for." << endl
+                 << "Enter 1 if you want more options and 0 if you want to search recipe of any of above dish:" << endl;
+        label2:
+            cin >> x1;
+            if (x1 == 1)
+            {
+                w = w + 5;
+                goto type_search;
+            }
+            else if (x1 == 0)
+            {
+                goto input;
+            }
+            else
+            {
+                cout << "Please enter only 0 or 1." << endl;
+                goto label2;
+            }
+        }
+
+        cout << "Enter 1 to contine and any other number to exit:" << endl;
+        int y;
+        cin >> y;
+        if (y == 1)
+        {
+            goto begining;
+        }
+        else
+        {
+            goto end;
+        }
+    }
+    else
+    {
+        goto end;
+    }
+end:
+return 0;
+}
