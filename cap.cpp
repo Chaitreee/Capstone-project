@@ -774,3 +774,75 @@ void searchByType(int type, int varity)
         }
     }
 }
+
+void mealplanner()
+{
+    srand(time(0));
+    int r = rand() % 26;
+    int j = 0;
+
+for_loop1:
+    cout << "Breackfast options : " << endl;
+    for (int i = r; i < 26; i++)
+    {
+        dish *temp = storage[i].next;
+        while (temp != NULL && j != 3)
+        {
+            if (temp->category == 'B')
+            {
+                j++;
+                cout << temp->name << endl;
+            }
+            temp = temp->next;
+        }
+    }
+    if (j < 3)
+    {
+        r = 0;
+        goto for_loop1;
+    }
+
+    j = 0;
+for_loop2:
+    cout << "Lunch options : " << endl;
+    for (int i = r; i < 26; i++)
+    {
+        dish *temp = storage[i].next;
+        while (temp != NULL && j != 3)
+        {
+            if (temp->category == 'L')
+            {
+                j++;
+                cout << temp->name << endl;
+            }
+            temp = temp->next;
+        }
+    }
+    if (j < 3)
+    {
+        r = 0;
+        goto for_loop2;
+    }
+
+    j = 0;
+for_loop3:
+    cout << "Dinner options : " << endl;
+    for (int i = r; i < 26; i++)
+    {
+        dish *temp = storage[i].next;
+        while (temp != NULL && j != 3)
+        {
+            if (temp->category == 'D')
+            {
+                j++;
+                cout << temp->name << endl;
+            }
+            temp = temp->next;
+        }
+    }
+    if (j < 3)
+    {
+        r = 0;
+        goto for_loop3;
+    }
+}
