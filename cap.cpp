@@ -651,5 +651,22 @@ void initialize()
     lauki_sabji.next = NULL;
 }
 
+void storing()
+{
 
+    storage[0].next = &aloo_sabji;
+    storage[1].next = &biryani;
+    storage[2].next = &chilla;
+    storage[3].next = &dhokla;
+    storage[6].next = &gulab_jamun;
+    storage[8].next = &idli;
+    storage[10].next = &kadhi;
+    storage[11].next = &lemon_water;
+    storage[12].next = &masal_bhindi;
+    storage[13].next = &nan;
+    storage[15].next = &poha;
+    storage[17].next = &rajma;
+    storage[20].next = &upma;
+    storage[21].next = &veg_pulao;
+}
 
