@@ -846,3 +846,37 @@ for_loop3:
         goto for_loop3;
     }
 }
+
+void findrecibyingd(string ingd[], int noofingd)
+{
+    for (int i = 0; i < 26; i++)
+    {
+        dish *temp = storage[i].next;
+        while (temp != NULL)
+        {
+            bool foundallingd = true; 
+            for (int j = 0; j < noofingd; j++)
+            {
+                bool foundingd = false;
+                for (int k = 0; k < 25; k++)
+                {
+                    if (ingd[j] == temp->arr[k].a)
+                    {
+                        foundingd = true;
+                        break;
+                    }
+                }
+                if (!foundingd)
+                {
+                    foundallingd = false;
+                    break;
+                }
+            }
+            if (foundallingd)
+            {
+                cout << temp->name << " : " << temp->recipe << endl;
+            }
+            temp = temp->next;
+        }
+    }
+}
