@@ -689,3 +689,23 @@ void search(string reci, int index)
 end:
     cout << endl;
 }
+
+void inputReci(dish &reci)
+{
+    int ind;
+    ind = reci.name[0] - 97;
+    if (storage[ind].next == NULL)
+    {
+        storage[ind].next = new dish(reci);
+    }
+    else
+    {
+        dish *temp = storage[ind].next;
+        while (temp->next != NULL)
+        {
+            temp = temp->next;
+        }
+        temp->next = new dish(reci);
+    }
+}
+
